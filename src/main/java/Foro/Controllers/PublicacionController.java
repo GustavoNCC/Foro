@@ -1,16 +1,18 @@
 package Foro.Controllers;
 
-import Foro.Controllers.ForoController;
 import Foro.Perfil.Publicacion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class PostController {
+public class PublicacionController {
 
-    @FXML private TextArea txtContenido;
-    @FXML private CheckBox chkAdultContent;
-    @FXML private CheckBox chkNsfw;
+    @FXML
+    private TextArea txtContenido;
+    @FXML
+    private CheckBox chkAdultContent;
+    @FXML
+    private CheckBox chkNsfw;
 
     private ForoController foroPrincipalController;
 
@@ -19,14 +21,14 @@ public class PostController {
     }
 
     @FXML
-    private void publicarPost(ActionEvent event) {
+    private void publicarPublicacion(ActionEvent event) {
         if (!esContenidoValido()) {
-            mostrarError("Error", "Contenido vacío");
+            mostrarError("Error", "El contenido no puede estar vacío");
             return;
         }
 
-        Post post = crearPostDesdeFormulario();
-        enviarPostAlForo(post);
+        Publicacion publicacion = crearPublicacionDesdeFormulario();
+        enviarPublicacionAlForo(publicacion);
         cerrarVentanaActual();
     }
 
@@ -39,16 +41,16 @@ public class PostController {
         return !txtContenido.getText().trim().isEmpty();
     }
 
-    private Post crearPostDesdeFormulario() {
+    private Publicacion crearPublicacionDesdeFormulario() {
         String contenido = txtContenido.getText().trim();
         boolean esContenidoAdulto = chkAdultContent.isSelected();
         boolean esNSFW = chkNsfw.isSelected();
-        return new Post(contenido, esContenidoAdulto, esNSFW);
+        return new Publicacion(contenido, esContenidoAdulto, esNSFW);
     }
 
-    private void enviarPostAlForo(Post post) {
+    private void enviarPublicacionAlForo(Publicacion publicacion) {
         if (foroPrincipalController != null) {
-            foroPrincipalController.agregarPost(post);
+            foroPrincipalController.agregarPublicacion(publicacion);
         }
     }
 

@@ -4,109 +4,60 @@ import Foro.Perfil.Publicacion;
 import Foro.Perfil.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.util.LinkedList;
-import java.util.List;
 
 public class ForoController {
 
-    @FXML private Label saludoUsuario;
-    @FXML private VBox contenedorPosts;
-    @FXML private ScrollPane scrollPosts;
+    @FXML
+    private ListView<Publicacion> listaPublicaciones;
+    @FXML
+    private Label etiquetaBienvenida;
 
-    private Usuario usuarioEnSesion;
-    private final List<Post> listaDePosts = new LinkedList<>();
+    private Usuario usuario;
 
     @FXML
     private void initialize() {
-        configurarScroll();
+        listaPublicaciones.setPlaceholder(new Label("Aún no hay publicaciones..."));
     }
 
-    public void recibirUsuario(Usuario usuario) {
-        this.usuarioEnSesion = usuario;
-        prepararInterfaz();
-    }
-
-    private void configurarScroll() {
-        scrollPosts.setFitToWidth(true);
-        scrollPosts.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-    }
-
-    private void prepararInterfaz() {
-        if (usuarioEnSesion != null) {
-            saludoUsuario.setText("Bienvenido: " + usuarioEnSesion.getNombre() + "\n@" + usuarioEnSesion.getUsername());
-        }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+        etiquetaBienvenida.setText("¡Bienvenido, " + usuario.getUsername() + "!");
     }
 
     @FXML
-    private void abrirVentanaPost() {
+    private void abrirVentanaPublicacion() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/CrearPost.fxml"));
-            Parent interfaz = fxmlLoader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/PublicacionView.fxml"));
+            Parent root = loader.load();
 
-            CrearPostController controladorPost = fxmlLoader.getController();
-            controladorPost.establecerForo(this);
+            PublicacionController controlador = loader.getController();
+            controlador.setForoPrincipalController(this);
 
-            Stage nuevaVentana = new Stage();
-            nuevaVentana.setTitle("Nuevo Post");
-            nuevaVentana.setScene(new Scene(interfaz));
-            nuevaVentana.show();
+            Stage ventana = new Stage();
+            ventana.setTitle("Crear nueva publicación");
+            ventana.initModality(Modality.APPLICATION_MODAL);
+            ventana.setScene(new Scene(root));
+            ventana.showAndWait();
         } catch (Exception e) {
-            lanzarAlerta("Error", "No se pudo cargar la ventana para crear post");
+            mostrarError("Error al abrir la ventana de publicación", e.getMessage());
             e.printStackTrace();
         }
     }
 
-    public void registrarPost(Post post) {
-        if (post != null) {
-            listaDePosts.add(post);
-            renderizarPost(post);
-        }
+    public void agregarPublicacion(Publicacion publicacion) {
+        listaPublicaciones.getItems().add(0, publicacion); // Añade al inicio
     }
 
-    private void renderizarPost(Post post) {
-        Label etiquetaPost = new Label(post.toString());
-        etiquetaPost.setWrapText(true);
-        etiquetaPost.setMaxWidth(600);
-        etiquetaPost.setStyle(definirEstilo(post));
-        contenedorPosts.getChildren().add(0, etiquetaPost);
-    }
-
-    private String definirEstilo(Post post) {
-        String base = "-fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 1;";
-
-        if (post.isAdultContent() && post.isNsfw()) {
-            return base + "-fx-background-color: #ffebee; -fx-border-color: #ffcdd2;";
-        } else if (post.isAdultContent()) {
-            return base + "-fx-background-color: #f3e5f5; -fx-border-color: #e1bee7;";
-        } else if (post.isNsfw()) {
-            return base + "-fx-background-color: #fff8e1; -fx-border-color: #ffecb3;";
-        } else {
-            return base + "-fx-background-color: #e8f5e9; -fx-border-color: #c8e6c9;";
-        }
-    }
-
-    @FXML
-    private void salirDelForo() {
-        try {
-            Parent vistaInicio = FXMLLoader.load(getClass().getResource("/InicioPrincipal.fxml"));
-            Stage ventana = (Stage) saludoUsuario.getScene().getWindow();
-            ventana.setScene(new Scene(vistaInicio, 600, 400));
-            ventana.setTitle("Inicio de Sesión");
-        } catch (Exception e) {
-            lanzarAlerta("Error", "Ocurrió un problema al cerrar la sesión");
-        }
-    }
-
-    private void lanzarAlerta(String titulo, String contenido) {
+    private void mostrarError(String titulo, String mensaje) {
         Alert alerta = new Alert(Alert.AlertType.ERROR);
         alerta.setTitle(titulo);
         alerta.setHeaderText(null);
-        alerta.setContentText(contenido);
+        alerta.setContentText(mensaje);
         alerta.showAndWait();
     }
 }

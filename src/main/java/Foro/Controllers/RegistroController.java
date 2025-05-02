@@ -11,11 +11,18 @@ import javafx.stage.Stage;
 
 public class RegistroController {
 
-    @FXML private TextField inputNombre;
-    @FXML private TextField inputEdad;
-    @FXML private ComboBox<String> selectorGenero;
-    @FXML private TextField inputUsuario;
-    @FXML private PasswordField inputClave;
+    @FXML
+    private TextField inputNombre;
+    @FXML
+    private TextField inputEdad;
+    @FXML
+    private ComboBox<String> selectorGenero;
+    @FXML
+    private TextField inputCorreo;
+    @FXML
+    private TextField inputUsuario;
+    @FXML
+    private PasswordField inputClave;
 
     @FXML
     private void initialize() {
@@ -27,16 +34,15 @@ public class RegistroController {
         if (!datosValidos()) return;
 
         Usuario nuevo = construirUsuarioDesdeFormulario();
+        GestorUsuarios gestor = new GestorUsuarios();
 
         try {
-            UsuarioDAO dao = new UsuarioDAO();
-
-            if (dao.existeUsuario(nuevo.getUsername())) {
+            if (gestor.usuarioYaExiste(nuevo.getUsername())) {
                 notificar("Error", "El nombre de usuario ya está en uso");
                 return;
             }
 
-            if (dao.crearUsuario(nuevo)) {
+            if (gestor.registrarNuevoUsuario(nuevo)) {
                 notificar("Éxito", "Usuario registrado correctamente");
                 redirigirAlLogin(evento);
             } else {
@@ -62,10 +68,11 @@ public class RegistroController {
         String nombre = inputNombre.getText().trim();
         String edadTexto = inputEdad.getText().trim();
         String genero = selectorGenero.getValue();
+        String correo = inputCorreo.getText().trim();
         String usuario = inputUsuario.getText().trim();
         String clave = inputClave.getText().trim();
 
-        if (nombre.isEmpty() || edadTexto.isEmpty() || genero == null || usuario.isEmpty() || clave.isEmpty()) {
+        if (nombre.isEmpty() || edadTexto.isEmpty() || genero == null || correo.isEmpty() || usuario.isEmpty() || clave.isEmpty()) {
             notificar("Error", "Todos los campos son obligatorios");
             return false;
         }
@@ -88,10 +95,11 @@ public class RegistroController {
         String nombre = inputNombre.getText().trim();
         int edad = Integer.parseInt(inputEdad.getText().trim());
         String genero = selectorGenero.getValue();
+        String correo = inputCorreo.getText().trim();
         String usuario = inputUsuario.getText().trim();
         String clave = inputClave.getText().trim();
 
-        return new Usuario(nombre, edad, genero, usuario, clave);
+        return new Usuario(nombre, edad, genero, correo, usuario, clave);
     }
 
     private void cambiarVista(String ruta, String titulo, int ancho, int alto) {

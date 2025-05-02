@@ -9,10 +9,14 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class InicioController {
 
-    @FXML private TextField campoUsuario;
-    @FXML private PasswordField campoClave;
+    @FXML
+    private TextField campoUsuario;
+    @FXML
+    private PasswordField campoClave;
 
     @FXML
     private void manejarInicioSesion(ActionEvent evento) {
@@ -38,8 +42,8 @@ public class InicioController {
 
     private void autenticarUsuario(String usuario, String clave) {
         try {
-            UsuarioDAO dao = new UsuarioDAO();
-            Usuario encontrado = dao.obtenerUsuarioCompleto(usuario, clave);
+            GestorUsuarios gestor = new GestorUsuarios();
+            Usuario encontrado = gestor.recuperarUsuario(usuario, clave);
 
             if (encontrado != null) {
                 abrirForo(encontrado);
@@ -52,12 +56,12 @@ public class InicioController {
         }
     }
 
-    private void abrirForo(Usuario usuario) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ForoPrincipal.fxml"));
+    private void abrirForo(Usuario usuario) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ForoView.fxml"));
         Parent vista = fxmlLoader.load();
 
-        ForoPrincipalController controlador = fxmlLoader.getController();
-        controlador.setUsuario(usuario);
+        ForoController controlador = fxmlLoader.getController();
+        controlador.setUsuario(usuario); // Este método debe estar en ForoController
 
         Stage escenario = (Stage) campoUsuario.getScene().getWindow();
         escenario.setScene(new Scene(vista, 800, 600));

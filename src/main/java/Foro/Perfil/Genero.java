@@ -1,3 +1,3 @@
 package Foro.Perfil;
 
-public enum Genero { MASCULINO, FEMENINO, NO_DEFINIDO }
+public enum Genero {MASCULINO, FEMENINO, NO_DEFINIDO}

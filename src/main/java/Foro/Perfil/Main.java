@@ -2,28 +2,20 @@ package Foro.Perfil;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
     @Override
-    public void start(Stage ventanaPrincipal) {
-        try {
-            FXMLLoader cargador = new FXMLLoader(getClass().getResource("/InicioPrincipal.fxml"));
-            Parent interfazInicio = cargador.load();
-
-            Scene escena = new Scene(interfazInicio, 600, 400);
-            ventanaPrincipal.setScene(escena);
-            ventanaPrincipal.setTitle("Inicio de Sesión");
-            ventanaPrincipal.show();
-        } catch (Exception e) {
-            System.err.println("No se pudo cargar la interfaz inicial: " + e.getMessage());
-            e.printStackTrace();
-        }
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/InicioForo.fxml"));
+        primaryStage.setTitle("Foro - Iniciar Sesión");
+        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.show();
     }
 
-    public static void main(String[] argumentos) {
-        launch(argumentos);
+    public static void main(String[] args) {
+        launch(args);
     }
 }

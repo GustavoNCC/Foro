@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Foro.Controllers.PublicacionController"
+            prefWidth="400" prefHeight="300">
+
+    <VBox spacing="10" alignment="CENTER" padding="20">
+        <Label text="Nueva Publicación" style="-fx-font-size: 18px;"/>
+
+        <TextArea fx:id="txtContenido" promptText="Escribe tu publicación..." prefRowCount="5" wrapText="true"/>
+
+        <HBox spacing="15" alignment="CENTER">
+            <CheckBox fx:id="chkAdultContent" text="Contenido +18"/>
+            <CheckBox fx:id="chkNsfw" text="NSFW"/>
+        </HBox>
+
+        <HBox spacing="20" alignment="CENTER">
+            <Button text="Publicar" onAction="#publicarPublicacion"/>
+            <Button text="Cancelar" onAction="#cancelar"/>
+        </HBox>
+    </VBox>
+
+</AnchorPane>
+
