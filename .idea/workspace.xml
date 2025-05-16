@@ -4,60 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6776906-4600-4ee9-9da1-24e2f5259174" name="Changes" comment="b">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/control/ComunidadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/control/CuentaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/control/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/control/MiembrosGrupoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/control/MuroController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/control/PerfilAjenoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/control/PerfilController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/control/RespuestaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Entrada.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Grupo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Persona.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Respuesta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/servicio/EntradaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/servicio/GrupoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/servicio/ReaccionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/servicio/RelacionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/servicio/RespuestaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/servicio/UsuarioService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/Comunidad.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/Cuenta.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/Login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/MiembrosGrupo.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/Muro.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/Perfil.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/PerfilAjeno.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/Publicacion.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/Registro.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/Respuestas.fxml" afterDir="false" />
+    <list default="true" id="d6776906-4600-4ee9-9da1-24e2f5259174" name="Changes" comment="Final1.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/acceso/ConexionDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/acceso/ConexionDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/control/ForoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/control/InicioController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/control/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/PublicacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/control/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/RegistroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/modelo/Comunidad.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/modelo/Estatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/modelo/Genero.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/modelo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/launch/LanzadorApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/modelo/Publicacion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/modelo/Usuario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/modelo/Validacion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/servicio/GestorDeConexion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/servicio/GestorUsuarios.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/swing/foro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/swing/foro/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ForoView.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/InicioForo.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RegistroUsuario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/publicacionView.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/swing/foro/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/swing.foro/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Comunidad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Comunidad.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Cuenta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Cuenta.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/MiembrosGrupo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/MiembrosGrupo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Muro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Muro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Perfil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Perfil.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/PerfilAjeno.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/PerfilAjeno.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Publicacion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Publicacion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Registro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Registro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Respuestas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Respuestas.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,12 +164,21 @@
       <option name="project" value="LOCAL" />
       <updated>1747415790379</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Final1.0">
+      <option name="closed" value="true" />
+      <created>1747426546298</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747426546298</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a" />
     <MESSAGE value="b" />
-    <option name="LAST_COMMIT_MESSAGE" value="b" />
+    <MESSAGE value="Final1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final1.0" />
   </component>
 </project>
