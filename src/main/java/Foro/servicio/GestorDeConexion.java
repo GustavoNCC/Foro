@@ -1,4 +1,4 @@
-package Foro.SQL_Conexion;
+package Foro.servicio;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

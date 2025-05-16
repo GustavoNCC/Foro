@@ -1,7 +1,7 @@
-package Foro.Controllers;
+package Foro.control;
 
-import Foro.Perfil.Publicacion;
-import Foro.Perfil.Usuario;
+import Foro.modelo.Publicacion;
+import Foro.modelo.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

@@ -1,6 +1,6 @@
-package Foro.SQL_Conexion;
+package Foro.servicio;
 
-import Foro.Perfil.Usuario;
+import Foro.modelo.Usuario;
 
 import java.sql.*;
 

@@ -1,4 +1,4 @@
-package Foro.Perfil;
+package Foro.modelo;
 
 public class Comunidad {
 

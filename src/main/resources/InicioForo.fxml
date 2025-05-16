@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Foro.Controllers.InicioController"
+            fx:controller="Foro.control.InicioController"
             prefWidth="600" prefHeight="400">
 
     <VBox alignment="CENTER" spacing="15"

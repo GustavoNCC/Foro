@@ -1,4 +1,4 @@
-package Foro.Perfil;
+package Foro.modelo;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

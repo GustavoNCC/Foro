@@ -3,10 +3,10 @@ module swing.foro {
     requires javafx.fxml;
     requires java.sql;
 
-    opens Foro.Perfil to javafx.fxml, javafx.graphics;
-    opens Foro.Controllers to javafx.fxml;
-    opens Foro.SQL_Conexion to javafx.fxml;
+    opens Foro.modelo to javafx.fxml, javafx.graphics;
+    opens Foro.control to javafx.fxml;
+    opens Foro.servicio to javafx.fxml;
 
 
-    exports Foro.Perfil;
+    exports Foro.modelo;
 }

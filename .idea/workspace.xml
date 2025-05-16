@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6776906-4600-4ee9-9da1-24e2f5259174" name="Changes" comment="a">
+    <list default="true" id="d6776906-4600-4ee9-9da1-24e2f5259174" name="Changes" comment="b">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/acceso/ConexionDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/Controllers/ForoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/ForoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/Controllers/InicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/InicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/Controllers/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/PublicacionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/Controllers/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/RegistroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/Perfil/Comunidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Comunidad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/Perfil/Estatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Estatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/Perfil/Genero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Genero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/Perfil/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/Perfil/Publicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Publicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/Perfil/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/Perfil/Validacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Validacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/SQL_Conexion/GestorDeConexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/servicio/GestorDeConexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/SQL_Conexion/GestorUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/servicio/GestorUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ForoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ForoView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/InicioForo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/InicioForo.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/RegistroUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RegistroUsuario.fxml" afterDir="false" />
@@ -89,11 +105,20 @@
       <option name="project" value="LOCAL" />
       <updated>1746216502913</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="b">
+      <option name="closed" value="true" />
+      <created>1746219123028</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746219123028</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="b" />
+    <option name="LAST_COMMIT_MESSAGE" value="b" />
   </component>
 </project>

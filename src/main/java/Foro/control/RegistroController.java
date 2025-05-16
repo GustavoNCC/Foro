@@ -1,7 +1,7 @@
-package Foro.Controllers;
+package Foro.control;
 
-import Foro.SQL_Conexion.GestorUsuarios;
-import Foro.Perfil.Usuario;
+import Foro.servicio.GestorUsuarios;
+import Foro.modelo.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

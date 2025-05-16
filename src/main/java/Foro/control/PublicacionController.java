@@ -1,6 +1,6 @@
-package Foro.Controllers;
+package Foro.control;
 
-import Foro.Perfil.Publicacion;
+import Foro.modelo.Publicacion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
