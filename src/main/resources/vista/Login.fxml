@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Foro.control.LoginController">
+    <children>
+        <Text layoutX="200.0" layoutY="50.0" text="Iniciar Sesión" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+        <Label layoutX="150.0" layoutY="100.0" text="Usuario:"/>
+        <TextField fx:id="campoUsuario" layoutX="220.0" layoutY="96.0" promptText="Usuario"/>
+        <Label layoutX="150.0" layoutY="140.0" text="Contraseña:"/>
+        <PasswordField fx:id="campoClave" layoutX="220.0" layoutY="136.0" promptText="Contraseña"/>
+        <Button layoutX="220.0" layoutY="180.0" text="Entrar" onAction="#iniciarSesion"/>
+        <Label layoutX="150.0" layoutY="230.0" text="¿No tienes cuenta?"/>
+        <Button layoutX="270.0" layoutY="226.0" text="Registrarse" onAction="#irARegistro"/>
+    </children>
+</AnchorPane>

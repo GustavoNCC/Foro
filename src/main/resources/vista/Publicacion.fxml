@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Foro.control.PublicacionController">
+    <children>
+        <Label layoutX="20.0" layoutY="30.0" text="Nueva Entrada" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+        <TextArea fx:id="campoContenido" layoutX="20.0" layoutY="70.0"
+                  prefHeight="150.0" prefWidth="560.0" wrapText="true"/>
+
+        <CheckBox fx:id="chkAdulto" layoutX="20.0" layoutY="230.0" text="Contenido +18"/>
+        <CheckBox fx:id="chkNSFW" layoutX="180.0" layoutY="230.0" text="NSFW"/>
+
+        <Label layoutX="20.0" layoutY="270.0" text="Grupo:"/>
+        <ComboBox fx:id="comboGrupos" layoutX="80.0" layoutY="266.0" prefWidth="300.0"/>
+
+        <Button layoutX="20.0" layoutY="320.0" text="Publicar" onAction="#publicar"/>
+        <Button layoutX="110.0" layoutY="320.0" text="Cancelar" onAction="#cancelar"/>
+    </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
-package swing.foro;
+package Foro;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

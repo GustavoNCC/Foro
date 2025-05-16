@@ -1,4 +1,4 @@
-package swing.foro;
+package Foro;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

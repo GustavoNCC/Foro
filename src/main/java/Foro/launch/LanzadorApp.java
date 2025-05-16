@@ -1,4 +1,4 @@
-package Foro.modelo;
+package Foro.launch;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,11 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class LanzadorApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/InicioForo.fxml"));
-        primaryStage.setTitle("Foro - Iniciar Sesión");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Login.fxml"));
+        Parent root = loader.load();
+
+        primaryStage.setTitle("Red Social");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }

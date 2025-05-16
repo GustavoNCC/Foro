@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Foro.control.CuentaController"
+      spacing="15" style="-fx-padding: 20;">
+
+    <Label text="Gestión de Cuenta" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+    <Label text="Cambiar Contraseña:"/>
+    <PasswordField fx:id="campoActual" promptText="Contraseña actual"/>
+    <PasswordField fx:id="campoNueva" promptText="Nueva contraseña"/>
+    <Button text="Actualizar Contraseña" onAction="#cambiarClave"
+            style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+
+    <Separator/>
+
+    <Label text="Eliminar Cuenta:" style="-fx-font-weight: bold;"/>
+    <Button text="Eliminar mi cuenta" onAction="#eliminarCuenta"
+            style="-fx-background-color: #e53935; -fx-text-fill: white;"/>
+
+</VBox>
+
