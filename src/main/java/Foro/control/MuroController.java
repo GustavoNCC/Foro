@@ -26,6 +26,61 @@ public class MuroController {
     @FXML private Label saludoUsuario;
     @FXML private VBox contenedorEntradas;
     @FXML private ScrollPane scrollArea;
+    @FXML
+    public void abrirPublicacion() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Publicacion.fxml"));
+            Parent root = loader.load();
+
+            PublicacionController controller = loader.getController();
+            controller.setContexto(this, personaActiva);
+
+            Stage stage = new Stage();
+            stage.setTitle("Nueva Publicación");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void abrirComunidades() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Comunidad.fxml"));
+            Parent root = loader.load();
+
+            ComunidadController controller = loader.getController();
+            controller.setPersonaActiva(personaActiva);
+
+            Stage stage = new Stage();
+            stage.setTitle("Comunidades");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void abrirPerfil() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Perfil.fxml"));
+            Parent root = loader.load();
+
+            PerfilController controller = loader.getController();
+            controller.mostrarPerfil(personaActiva);
+
+            Stage stage = new Stage();
+            stage.setTitle("Mi Perfil");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     private final Map<Integer, Node> respuestasVisibles = new HashMap<>();
 
 

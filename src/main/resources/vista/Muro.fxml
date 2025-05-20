@@ -5,21 +5,29 @@
 <VBox xmlns="http://javafx.com/javafx/17.0.2-ea"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="Foro.control.MuroController"
-      spacing="10" style="-fx-padding: 10;">
+      spacing="10" style="-fx-padding: 15;">
 
+    <!-- Encabezado -->
     <HBox spacing="10">
         <Label fx:id="saludoUsuario" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
         <Region HBox.hgrow="ALWAYS"/>
-        <Button text="Cerrar Sesión" onAction="#cerrarSesion"/>
+        <Button text="Crear Publicación" onAction="#abrirPublicacion"/>
+        <Button text="Comunidades" onAction="#abrirComunidades"/>
+        <Button text="Mi Perfil" onAction="#abrirPerfil"/>
         <Button text="Cuenta" onAction="#abrirGestionCuenta"/>
+        <Button text="Cerrar Sesión" onAction="#cerrarSesion"/>
     </HBox>
 
+    <!-- Búsqueda de usuario -->
     <HBox spacing="10">
         <TextField fx:id="campoBuscarUsuario" promptText="Buscar por @username" prefWidth="200"/>
         <Button text="Buscar" onAction="#buscarUsuario"/>
     </HBox>
 
+    <!-- Publicaciones -->
     <ScrollPane fx:id="scrollArea" fitToWidth="true" hbarPolicy="NEVER">
         <VBox fx:id="contenedorEntradas" spacing="10"/>
     </ScrollPane>
+
 </VBox>
+

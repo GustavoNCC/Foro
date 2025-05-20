@@ -1,7 +1,9 @@
 package Foro.modelo;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Entrada {
     private int id;
@@ -20,7 +22,15 @@ public class Entrada {
         this.esNsfw = esNsfw;
         this.fecha = new Date();
     }
+    private List<Respuesta> respuestas = new ArrayList<>();
 
+    public List<Respuesta> getRespuestas() {
+        return respuestas;
+    }
+
+    public void setRespuestas(List<Respuesta> respuestas) {
+        this.respuestas = respuestas;
+    }
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

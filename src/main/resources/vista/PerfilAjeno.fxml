@@ -6,21 +6,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?xml version="1.0" encoding="UTF-8"?>
 <VBox xmlns="http://javafx.com/javafx/17.0.2-ea"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="Foro.control.PerfilAjenoController"
       spacing="10" style="-fx-padding: 20;">
+
     <Label fx:id="lblTitulo" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
     <Label fx:id="lblNombre"/>
     <Label fx:id="lblEdad"/>
     <Label fx:id="lblGenero"/>
     <Label fx:id="lblUsuario"/>
     <Label fx:id="lblBio" wrapText="true" style="-fx-font-style: italic;"/>
+
     <Separator/>
+
     <HBox spacing="10">
         <Button fx:id="btnAmigo" text="Agregar Amigo" onAction="#agregarAmigo"/>
         <Button fx:id="btnBloqueo" text="Bloquear" onAction="#bloquearUsuario"
                 style="-fx-background-color: #e53935; -fx-text-fill: white;"/>
     </HBox>
 </VBox>
+
