@@ -32,7 +32,7 @@ public class ComunidadController {
         String descripcion = campoDescripcion.getText().trim();
 
         if (nombre.isEmpty() || descripcion.isEmpty()) {
-            mostrar("Error", "Todos los campos son obligatorios.");
+            mostrar("Error", "Pon todos los campos.");
             return;
         }
 

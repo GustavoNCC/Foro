@@ -214,7 +214,7 @@ public class MuroController {
             mostrarAlerta("Repost exitoso", "Reposteaste esta publicación.");
             cargarEntradas(); // Refresca el muro para incluir el nuevo post
         } else {
-            mostrarAlerta("Error", "No se pudo repostear.");
+            mostrarAlerta("Error", "No se pudo repostear, checa tu conexion.");
         }
     }
 

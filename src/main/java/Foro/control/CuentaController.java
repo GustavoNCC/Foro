@@ -26,7 +26,7 @@ public class CuentaController {
         String nueva = campoNueva.getText().trim();
 
         if (!personaActiva.getClave().equals(actual)) {
-            mostrar("Error", "La contraseña actual es incorrecta.");
+            mostrar("Error", "La contraseña actual esta mal.");
             return;
         }
 
@@ -52,15 +52,15 @@ public class CuentaController {
     public void eliminarCuenta() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Eliminar Cuenta");
-        alert.setHeaderText("¿Estás segura de eliminar tu cuenta?");
-        alert.setContentText("Esta acción es irreversible.");
+        alert.setHeaderText("¿Segurisimo quieres eliminar tu cuenta?");
+        alert.setContentText("Esta acción es irreversible ojo.");
 
         if (alert.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK) {
             UsuarioService servicio = new UsuarioService();
             boolean exito = servicio.eliminarCuenta(personaActiva.getId());
 
             if (exito) {
-                mostrar("Cuenta eliminada", "Tu cuenta ha sido borrada.");
+                mostrar("Cuenta eliminada", "Tu cuenta ha sido borrada, te extrañaremos.");
                 volverAlInicio();
             } else {
                 mostrar("Error", "No se pudo eliminar la cuenta.");
