@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6776906-4600-4ee9-9da1-24e2f5259174" name="Changes" comment="Final1.0">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/ReaccionComentario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Foro/servicio/ReaccionComentarioService.java" afterDir="false" />
+    <list default="true" id="d6776906-4600-4ee9-9da1-24e2f5259174" name="Changes" comment="Final1.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/control/MuroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/MuroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/control/RespuestaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/RespuestaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/modelo/Entrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/modelo/Entrada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Muro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Muro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/PerfilAjeno.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/PerfilAjeno.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,13 +170,22 @@
       <option name="project" value="LOCAL" />
       <updated>1747428477405</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Final1.1">
+      <option name="closed" value="true" />
+      <created>1747757626351</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747757626351</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a" />
     <MESSAGE value="b" />
     <MESSAGE value="Final1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final1.0" />
+    <MESSAGE value="Final1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final1.1" />
   </component>
 </project>
