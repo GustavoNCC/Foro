@@ -12,13 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import java.util.HashMap;
-import java.util.Map;
 import javafx.scene.Node;
 import Foro.servicio.UsuarioService;
 
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MuroController {
 
@@ -26,6 +25,93 @@ public class MuroController {
     @FXML private Label saludoUsuario;
     @FXML private VBox contenedorEntradas;
     @FXML private ScrollPane scrollArea;
+
+    private final Map<Integer, Node> respuestasVisibles = new HashMap<>();
+    private Persona personaActiva;
+
+    public void setPersonaActiva(Persona persona) {
+        this.personaActiva = persona;
+        saludoUsuario.setText("Bienvenida, " + persona.getNombreCompleto() + "\n@" + persona.getApodo());
+        cargarEntradas();
+    }
+
+    private void cargarEntradas() {
+        contenedorEntradas.getChildren().clear();
+        EntradaService servicio = new EntradaService();
+        List<Entrada> entradas = servicio.obtenerPorUsuarioYAmigos(personaActiva.getId());
+
+        for (Entrada entrada : entradas) {
+            mostrarPost(entrada);
+        }
+    }
+
+    private void mostrarPost(Entrada entrada) {
+        VBox tarjeta = new VBox(5);
+        tarjeta.setPadding(new Insets(10));
+        tarjeta.setStyle("-fx-border-color: gray; -fx-background-color: #eef;");
+
+        Label contenido = new Label(entrada.toString());
+        contenido.setWrapText(true);
+        contenido.setOnMouseClicked(e -> abrirDetallePublicacion(entrada));
+        contenido.setStyle("-fx-cursor: hand; -fx-text-fill: blue;");
+
+        Button btnLike = new Button("❤️ Like");
+        btnLike.setOnAction(e -> darLike(entrada));
+
+        Button btnRepost = new Button("🔁 Repost");
+        btnRepost.setOnAction(e -> hacerRepost(entrada));
+
+        Button btnComentarios = new Button("💬 Comentarios");
+        btnComentarios.setOnAction(e -> alternarRespuestas(tarjeta, entrada));
+
+        HBox filaBotones = new HBox(10, btnLike, btnRepost, btnComentarios);
+        tarjeta.getChildren().addAll(contenido, filaBotones);
+        contenedorEntradas.getChildren().add(tarjeta);
+    }
+
+    private void alternarRespuestas(VBox tarjeta, Entrada entrada) {
+        if (respuestasVisibles.containsKey(entrada.getId())) {
+            Node respuestas = respuestasVisibles.remove(entrada.getId());
+            tarjeta.getChildren().remove(respuestas);
+        } else {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Respuestas.fxml"));
+                VBox vistaRespuestas = loader.load();
+                RespuestaController controlador = loader.getController();
+                controlador.inicializarDatos(entrada, personaActiva);
+
+                respuestasVisibles.put(entrada.getId(), vistaRespuestas);
+                tarjeta.getChildren().add(vistaRespuestas);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void darLike(Entrada entrada) {
+        var servicio = new ReaccionService();
+        boolean exito = servicio.registrar(personaActiva.getId(), entrada.getId(), "LIKE");
+        mostrarAlerta(exito ? "Like dado" : "Error", exito ? "Te gustó esta publicación." : "No se pudo registrar el like.");
+    }
+
+    private void hacerRepost(Entrada original) {
+        Entrada repost = new Entrada(
+                original.getContenido(),
+                original.isEsAdulto(),
+                original.isEsNsfw()
+        );
+        repost.setOrigen(original.getAutor());
+        repost.setFecha(new java.util.Date());
+
+        var servicio = new EntradaService();
+        if (servicio.guardar(repost, personaActiva)) {
+            mostrarAlerta("Repost exitoso", "Reposteaste esta publicación.");
+            cargarEntradas();
+        } else {
+            mostrarAlerta("Error", "No se pudo repostear, checa tu conexión.");
+        }
+    }
+
     @FXML
     public void abrirPublicacion() {
         try {
@@ -37,6 +123,23 @@ public class MuroController {
 
             Stage stage = new Stage();
             stage.setTitle("Nueva Publicación");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void abrirDetallePublicacion(Entrada entrada) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Publicacion.fxml"));
+            Parent root = loader.load();
+
+            PublicacionController controller = loader.getController();
+            controller.setEntradaExistente(this, personaActiva, entrada);
+
+            Stage stage = new Stage();
+            stage.setTitle("Publicación de @" + entrada.getAutor());
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
@@ -80,33 +183,21 @@ public class MuroController {
         }
     }
 
+    @FXML
+    public void abrirGestionCuenta() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Cuenta.fxml"));
+            Parent root = loader.load();
 
-    private final Map<Integer, Node> respuestasVisibles = new HashMap<>();
+            CuentaController ctrl = loader.getController();
+            ctrl.setPersona(personaActiva);
 
-
-    private Persona personaActiva;
-
-    public void setPersonaActiva(Persona persona) {
-        this.personaActiva = persona;
-        saludoUsuario.setText("Bienvenida, " + persona.getNombreCompleto() + "\n@" + persona.getApodo());
-        cargarEntradas();
-    }
-
-    private void cargarEntradas() {
-        contenedorEntradas.getChildren().clear();
-        EntradaService servicio = new EntradaService();
-        List<Entrada> entradas = servicio.obtenerPorUsuarioYAmigos(personaActiva.getId());
-
-        for (Entrada entrada : entradas) {
-            VBox tarjeta = new VBox(5);
-            tarjeta.setPadding(new Insets(10));
-            tarjeta.setStyle("-fx-border-color: gray; -fx-background-color: #eef;");
-
-            Label contenido = new Label(entrada.toString());
-            contenido.setWrapText(true);
-
-            tarjeta.getChildren().add(contenido);
-            contenedorEntradas.getChildren().add(tarjeta);
+            Stage stage = new Stage();
+            stage.setTitle("Mi Cuenta");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -120,6 +211,7 @@ public class MuroController {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void buscarUsuario() {
         String username = campoBuscarUsuario.getText().trim();
@@ -159,65 +251,6 @@ public class MuroController {
         }
     }
 
-    private void mostrarPost(Entrada entrada) {
-        VBox tarjeta = new VBox(5);
-        tarjeta.setPadding(new Insets(10));
-        tarjeta.setStyle("-fx-border-color: gray; -fx-background-color: #eef;");
-
-        Label contenido = new Label(entrada.toString());
-        contenido.setWrapText(true);
-
-        Button btnLike = new Button("❤️ Like");
-        btnLike.setOnAction(e -> darLike(entrada));
-
-        Button btnRepost = new Button("🔁 Repost");
-        btnRepost.setOnAction(e -> hacerRepost(entrada));
-
-        Button btnComentarios = new Button("💬 Comentarios");
-        btnComentarios.setOnAction(e -> alternarRespuestas(tarjeta, entrada));
-
-        HBox filaBotones = new HBox(10, btnLike, btnRepost, btnComentarios);
-        tarjeta.getChildren().addAll(contenido, filaBotones);
-        contenedorEntradas.getChildren().add(tarjeta);
-    }
-
-    private void alternarRespuestas(VBox tarjeta, Entrada entrada) {
-        if (respuestasVisibles.containsKey(entrada.getId())) {
-            Node respuestas = respuestasVisibles.remove(entrada.getId());
-            tarjeta.getChildren().remove(respuestas);
-        } else {
-            RespuestaController rc = new RespuestaController(entrada, personaActiva);
-            respuestasVisibles.put(entrada.getId(), rc);
-            tarjeta.getChildren().add(rc);
-        }
-    }
-
-    private void darLike(Entrada entrada) {
-        var servicio = new ReaccionService();
-        boolean exito = servicio.registrar(personaActiva.getId(), entrada.getId(), "LIKE");
-        mostrarAlerta(exito ? "Like dado" : "Error", exito ? "Te gustó esta publicación." : "No se pudo registrar el like.");
-    }
-
-    private void hacerRepost(Entrada original) {
-        Entrada repost = new Entrada(
-                original.getContenido(),
-                original.isEsAdulto(),
-                original.isEsNsfw()
-        );
-
-        repost.setOrigen(original.getAutor()); // Etiqueta al autor original
-        repost.setFecha(new java.util.Date()); // Fecha actual
-
-        // Usamos el servicio para guardar el repost
-        var servicio = new EntradaService();
-        if (servicio.guardar(repost, personaActiva)) {
-            mostrarAlerta("Repost exitoso", "Reposteaste esta publicación.");
-            cargarEntradas(); // Refresca el muro para incluir el nuevo post
-        } else {
-            mostrarAlerta("Error", "No se pudo repostear, checa tu conexion.");
-        }
-    }
-
     private void mostrarAlerta(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);
@@ -225,23 +258,4 @@ public class MuroController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-    @FXML
-    public void abrirGestionCuenta() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Cuenta.fxml"));
-            Parent root = loader.load();
-
-            CuentaController ctrl = loader.getController();
-            ctrl.setPersona(personaActiva);
-
-            Stage stage = new Stage();
-            stage.setTitle("Mi Cuenta");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
 }

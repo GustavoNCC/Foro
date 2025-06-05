@@ -5,9 +5,10 @@
 <VBox xmlns="http://javafx.com/javafx/17.0.2-ea"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="Foro.control.RespuestaController"
-      spacing="10" style="-fx-padding: 10; -fx-border-color: lightgray; -fx-background-color: #f9f9f9;">
+      spacing="10"
+      style="-fx-padding: 10; -fx-border-color: lightgray; -fx-background-color: #f9f9f9;">
 
     <ListView fx:id="listaRespuestas" prefHeight="150"/>
     <TextArea fx:id="campoNuevaRespuesta" promptText="Escribe tu comentario..." wrapText="true"/>
-    <Button fx:id="botonResponder" text="Responder" onAction="#responder"/>
+    <Button text="Responder" onAction="#responder"/>
 </VBox>

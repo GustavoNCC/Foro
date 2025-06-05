@@ -5,6 +5,7 @@ import Foro.modelo.Grupo;
 import Foro.modelo.Persona;
 import Foro.servicio.EntradaService;
 import Foro.servicio.GrupoService;
+import Foro.servicio.ReaccionService;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -18,9 +19,12 @@ public class PublicacionController {
     @FXML private CheckBox chkAdulto;
     @FXML private CheckBox chkNSFW;
     @FXML private ComboBox<Grupo> comboGrupos;
+    @FXML private Button btnLike;
+    @FXML private Button btnRepost;
 
     private Persona personaActiva;
     private MuroController muroOrigen;
+    private Entrada entradaMostrada;
 
     public void setContexto(MuroController muro, Persona persona) {
         this.muroOrigen = muro;
@@ -67,6 +71,54 @@ public class PublicacionController {
         cerrar();
     }
 
+    public void setEntradaExistente(MuroController muro, Persona persona, Entrada entrada) {
+        this.muroOrigen = muro;
+        this.personaActiva = persona;
+        this.entradaMostrada = entrada;
+
+        campoContenido.setText(entrada.getContenido());
+        campoContenido.setEditable(false);
+
+        chkAdulto.setSelected(entrada.isEsAdulto());
+        chkNSFW.setSelected(entrada.isEsNsfw());
+        chkAdulto.setDisable(true);
+        chkNSFW.setDisable(true);
+        comboGrupos.setVisible(false);
+
+        btnLike.setVisible(true);
+        btnRepost.setVisible(true);
+    }
+
+    @FXML
+    public void darLike() {
+        if (entradaMostrada == null) return;
+        ReaccionService servicio = new ReaccionService();
+        boolean exito = servicio.registrar(personaActiva.getId(), entradaMostrada.getId(), "LIKE");
+        mostrar(exito ? "Like dado" : "Error", exito ? "Te gustó esta publicación." : "No se pudo dar like.");
+    }
+
+    @FXML
+    public void darRepost() {
+        if (entradaMostrada == null) return;
+
+        Entrada repost = new Entrada(
+                entradaMostrada.getContenido(),
+                entradaMostrada.isEsAdulto(),
+                entradaMostrada.isEsNsfw()
+        );
+        repost.setOrigen(entradaMostrada.getAutor());
+        repost.setFecha(new Date());
+
+        EntradaService servicio = new EntradaService();
+        if (servicio.guardar(repost, personaActiva)) {
+            mostrar("Repost exitoso", "Reposteaste esta publicación.");
+            muroOrigen.setPersonaActiva(personaActiva);
+            cerrar();
+        } else {
+            mostrar("Error", "No se pudo hacer repost.");
+        }
+    }
+
     private void cerrar() {
         Stage stage = (Stage) campoContenido.getScene().getWindow();
         stage.close();
@@ -80,3 +132,5 @@ public class PublicacionController {
         alerta.showAndWait();
     }
 }
+
+

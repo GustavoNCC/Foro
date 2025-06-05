@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6776906-4600-4ee9-9da1-24e2f5259174" name="Changes" comment="Final1.1">
+    <list default="true" id="d6776906-4600-4ee9-9da1-24e2f5259174" name="Changes" comment="Final1.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Foro/control/ComunidadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/ComunidadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/control/CuentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/CuentaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Foro/control/MuroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/MuroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/control/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/PublicacionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foro/control/RespuestaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Foro/control/RespuestaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Comunidad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Comunidad.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Publicacion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Publicacion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/Respuestas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/Respuestas.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748883687017</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Final1.2">
+      <option name="closed" value="true" />
+      <created>1748887350701</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1748887350701</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -197,6 +209,7 @@
     <MESSAGE value="b" />
     <MESSAGE value="Final1.0" />
     <MESSAGE value="Final1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final1.1" />
+    <MESSAGE value="Final1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final1.2" />
   </component>
 </project>
